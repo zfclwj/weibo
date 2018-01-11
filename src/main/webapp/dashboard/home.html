@@ -1,0 +1,96 @@
+
+	<div class="row col-xs-3" style="margin-left:15px;margin-top: 10px;background-color:#FAF9DE; color:green">
+					<h3>日历</h3>
+					<table id='mycalendar' class='calendar'></table>
+			
+	</div>
+
+<div class="row col-xs-8" style="margin-left:45px ;margin-top: 10px; background-color:#FAF9DE">
+
+	<!-- .comment-list -->
+	<div class="m-b b-l m-l-md streamline" ng-repeat="item in postList" on-finish-render="ngRepeatFinished">
+		<div class="post">
+			<a class="pull-left m-l-n-md">
+				<div>{{item.authorName}}</div>
+			</a>
+			<div class="m-l-lg panel b-a">
+				<div class="panel-heading pos-rlt b-b b-light">
+					<span class="arrow left"></span> <span>{{item.content}}</span> <label
+						class="label bg-info m-l-xs" ng-if="item.authorName==username">Delete</label> <span
+						class="text-muted m-l-sm pull-right"> <i
+						class="fa fa-clock-o"></i> {{item.date|date:
+						'shortTime'}}&nbsp;&nbsp;{{item.date|date:'mediumDate' }}
+					</span>
+				</div>
+				<div class="panel-body">
+					<div class="">
+						{{item.likes}} 
+						<a class="btn btn-default btn-xs" ng-click="like(item.id)"> 
+							<span class="glyphicon glyphicon-thumbs-up"></span>Like
+						</a>
+						{{item.disLikes}}
+						<a class="btn btn-default btn-xs" ng-click="disLike(item.id)"> 
+							<span class="glyphicon glyphicon-thumbs-down"></span>DisLike
+						</a>
+						
+						 <a class="btn btn-default btn-xs" data-toggle="modal" data-target="#replyModal" ng-click="setReplyPostId(item.id)"> 
+						 	<i class="mark text-muted" ></i>
+							<span class="glyphicon glyphicon-th-large"></span>Reply
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- .comment-reply -->
+		<div class="m-l-lg" ng-repeat="cItem in item.commentList">
+			<a class="pull-left m-l-n-sd">
+				<div>{{cItem.cAuthorName}}</div>
+			</a>
+			<div class="m-l-xxl panel b-a">
+				<div class="panel-heading pos-rlt">
+					<span class="arrow left pull-up"></span> {{cItem.cContent}} <span
+						class="text-muted m-l-sm pull-right"> 
+						<i class="fa fa-clock-o"></i> {{cItem.cDate | date: 'shortTime'}}&nbsp;&nbsp;{{cItem.cDate | date: 'mediumDate'}}
+					</span>
+
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<div class="clearfix m-b-lg">
+
+		<div class="m-l-xxl">
+			<form class="m-b-none">
+				<div class="input-group">
+					<input type="text" class="form-control input-lg"
+						ng-model="post.content" placeholder="Input your post here">
+					<span class="input-group-btn">
+						<button class="btn btn-info btn-lg" type="button"
+							ng-click="addPost()">POST</button>
+					</span>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-body">
+				<input type="text" class="form-control" ng-model="comment.cContent" placeholder="reply sth..."/>
+			</div>
+			<div class="modal-header">
+				<button type="button" class="btn btn-warning btn-xs" data-dismiss="modal" aria-hidden="true">
+					<span class="glyphicon glyphicon-remove"></span>cancel
+				</button>
+				 <button type="button" class="btn btn-warning btn-xs" data-dismiss="modal" aria-hidden="true" style="float:right;" ng-click="addComment()">
+					<span class="glyphicon glyphicon-ok"></span>send
+				</button>
+			</div>
+			
+			
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal -->
+</div>
