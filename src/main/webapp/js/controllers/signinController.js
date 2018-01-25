@@ -14,4 +14,9 @@ app.controller('signinCtrl', ['$rootScope', '$scope', '$resource','$location', f
         	$scope.authError = "Server error";
         });
     };
+    
+    function refresh() {  
+        var url = $("#basePath").val() + "user/check.jpg?number="+Math.random();  
+        $("#img").attr("src",url);
+    } 
   }]);

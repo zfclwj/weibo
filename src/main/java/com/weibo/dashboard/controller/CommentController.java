@@ -12,6 +12,8 @@ import com.weibo.dashboard.entity.Comment;
 import com.weibo.dashboard.service.CommentService;
 import com.weibo.util.ResponseData;
 
+import sun.applet.Main;
+
 @RestController
 @RequestMapping(value="/comment")
 public class CommentController {
@@ -27,4 +29,5 @@ public class CommentController {
 	public void delete(@PathVariable("id") int id){
 		commentService.delete(id);
 	}
+
 }

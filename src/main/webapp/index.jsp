@@ -5,13 +5,13 @@
 <title>Web Project</title>
 <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.css" type="text/css" />
 <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css" />
-<link rel="stylesheet" href="css/font.css" type="text/css" />
+<link rel="stylesheet" href="css/fonts.*" type="text/css" />
 
 <link rel="stylesheet" href="vendor/bootstrap/css/dcalendar.picker.css"/>
 
 <link rel="stylesheet" href="css/app.css" type="text/css" />
 <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css" />
-<!-- <link rel="stylesheet" href="css/font.css" type="text/css" /> -->
+<!-- <link rel="stylesheet" href="css/fonts.css" type="text/css" /> -->
 </head>
 <body ng-app="app">
 	<div ng-view></div>

@@ -1,9 +1,10 @@
 
 	<div class="row col-xs-3" style="margin-left:15px;margin-top: 10px;background-color:#FAF9DE; color:green">
-					<h3>日历</h3>
-					<table id='mycalendar' class='calendar'></table>
-			
+				<h3>日历</h3>
+				<table id='mycalendar' class='calendar'></table>
+    				
 	</div>
+
 
 <div class="row col-xs-8" style="margin-left:45px ;margin-top: 10px; background-color:#FAF9DE">
 
@@ -13,13 +14,17 @@
 			<a class="pull-left m-l-n-md">
 				<div>{{item.authorName}}</div>
 			</a>
+			<!-- ng-if="item.authorName == username" -->
 			<div class="m-l-lg panel b-a">
 				<div class="panel-heading pos-rlt b-b b-light">
-					<span class="arrow left"></span> <span>{{item.content}}</span> <label
-						class="label bg-info m-l-xs" ng-if="item.authorName==username">Delete</label> <span
-						class="text-muted m-l-sm pull-right"> <i
-						class="fa fa-clock-o"></i> {{item.date|date:
-						'shortTime'}}&nbsp;&nbsp;{{item.date|date:'mediumDate' }}
+					<span class="arrow left"></span> <span>{{item.content}}</span> 
+					<button class="btn btn-default btn-xs" ng-if="extinfo" ng-click="delete1(item.id)">
+					<!-- <a class="btn btn-default btn-xs" ng-if="item.authorName != username " ng-click="delete1(item.id)"> -->
+					<span class="glyphicon glyphicon-remove"></span>Delete
+					<!-- </a> -->
+					</button>
+					<span class="text-muted m-l-sm pull-right">
+					 <i class="glyphicon glyphicon-dashboard"></i> {{item.date|date: 'shortTime'}}&nbsp;&nbsp;{{item.date|date:'mediumDate' }}
 					</span>
 				</div>
 				<div class="panel-body">
@@ -48,9 +53,9 @@
 			</a>
 			<div class="m-l-xxl panel b-a">
 				<div class="panel-heading pos-rlt">
-					<span class="arrow left pull-up"></span> {{cItem.cContent}} <span
-						class="text-muted m-l-sm pull-right"> 
-						<i class="fa fa-clock-o"></i> {{cItem.cDate | date: 'shortTime'}}&nbsp;&nbsp;{{cItem.cDate | date: 'mediumDate'}}
+					<span class="arrow left pull-up"></span> {{cItem.cContent}}
+					<span class="text-muted m-l-sm pull-right"> 
+						<i class="glyphicon glyphicon-dashboard"></i> {{cItem.cDate | date: 'shortTime'}}&nbsp;&nbsp;{{cItem.cDate | date: 'mediumDate'}}
 					</span>
 
 				</div>

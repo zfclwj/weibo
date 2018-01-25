@@ -2,13 +2,16 @@ app.controller('homeCtrl',['$scope','$resource','$location',function($scope,$res
 	
 	var username = getCookie("username");
 	console.log("cookies...",username);
+	//var extinfo = false;
 	if(username=='undefined'){
 		$location.path("/signin");
 	}
 	$scope.showPosts = function() {
+		
     	var postResource = $resource('post/show', {}, {query:{method:'GET',isArray:false}});
     	postResource.query({},function(res){
     		$scope.postList = res.data;
+    		//$scope.extinfo = true;
     	}, function (res) {
         	console.log("error");
         });
@@ -23,6 +26,17 @@ app.controller('homeCtrl',['$scope','$resource','$location',function($scope,$res
         	console.log("error");
         });
     };
+    
+    $scope.delete1 = function(id) {
+    	console.log(id,'...');
+    	var postResource = $resource('post/delete/:id', {id:id}, {save:{method:'GET'}});
+    	postResource.save({id:id},function (res) {
+    		$scope.showPosts();
+    	}, function (res) {
+        	console.log("error");
+        });
+    };
+    
     $scope.setReplyPostId = function(id){
     	$scope.replyPostId = id;
     }
@@ -63,5 +77,7 @@ app.controller('homeCtrl',['$scope','$resource','$location',function($scope,$res
     $scope.showPosts();
 	
    //$scope.mycalendar().dcalendar();
-    $('#mycalendar').dcalendar();
+    $('#mycalendar').dcalendar();	
+    //$('clockpicker').clockpicker();
+    
 }]);

@@ -33,7 +33,7 @@ public class PostController {
 		List<Post> list = postService.postByUser(userName);
 		return new ResponseData(list);
 	}
-	@RequestMapping(value="/{id}",method=RequestMethod.DELETE)
+	@RequestMapping(value="/delete/{id}",method=RequestMethod.GET)
 	public int delete(@PathVariable("id") int id){
 		int res = postService.delete(id);
 		return res;
@@ -57,4 +57,5 @@ public class PostController {
 			postService.disLike(id);
 		return "222";
 	}
+
 }

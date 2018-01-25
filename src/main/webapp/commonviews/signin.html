@@ -16,6 +16,9 @@
 					<input type="password" placeholder="Password"
 						class="form-control no-border" ng-model="user.password">
 				</div>
+				<div>
+					<img id="img" src="<%=basePath%>user/check.jpg" onclick="refresh()">  
+				</div>
 			</div>
 			<button type="submit" class="btn btn-lg btn-primary btn-block"
 				ng-click="login()" ng-disabled='form.$invalid'>Log in</button>
