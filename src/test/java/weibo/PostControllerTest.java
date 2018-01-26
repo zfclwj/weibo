@@ -40,13 +40,13 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import static org.mockito.Mockito.*;
 
 
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@ContextConfiguration (locations={"classpath:conf/applicationContent.xml"})
-//@WebAppConfiguration 
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration (locations={"classpath:conf/applicationContent.xml"})
+@WebAppConfiguration 
 public class PostControllerTest {
 
-//	@Autowired
-//	private WebApplicationContext wac;
+	@Autowired
+	private WebApplicationContext wac;
 	private ObjectMapper objectMapper;
 	private MockMvc mockMvc;
 	
@@ -114,4 +114,11 @@ public class PostControllerTest {
 		
 		verify(postService, times(1)).insert(refEq(p));
 	}
+	
+	/*@Test
+	public void test(){
+		PostController p = new PostController();
+		p.test1().;
+		System.out.println(po.getAuthorName());
+	}*/
 }

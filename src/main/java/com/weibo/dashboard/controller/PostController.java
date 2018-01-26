@@ -57,5 +57,11 @@ public class PostController {
 			postService.disLike(id);
 		return "222";
 	}
-
+	
+/*	public void test1(){
+		Post p = new Post();
+		p.setAuthorName("nihao ");
+	}*/
+	
+	
 }
